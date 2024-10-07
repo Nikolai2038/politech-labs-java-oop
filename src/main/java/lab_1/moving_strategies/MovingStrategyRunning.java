@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Передвижение бегом
  */
-public class MovingByRun implements IMovingStrategy {
+public class MovingStrategyRunning implements IMovingStrategy {
     @Override
     public void move(Point location) {
         location.setLocation(location.getX() + 10, location.getY());

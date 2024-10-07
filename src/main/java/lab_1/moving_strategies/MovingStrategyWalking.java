@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Передвижение пешком
  */
-public class MovingByWalk implements IMovingStrategy {
+public class MovingStrategyWalking implements IMovingStrategy {
     @Override
     public void move(Point location) {
         location.setLocation(location.getX() + 5, location.getY());

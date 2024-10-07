@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Передвижение на лошади
  */
-public class MovingByHorse implements IMovingStrategy {
+public class MovingStrategyOnHorse implements IMovingStrategy {
     @Override
     public void move(Point location) {
         location.setLocation(location.getX() + 30, location.getY());

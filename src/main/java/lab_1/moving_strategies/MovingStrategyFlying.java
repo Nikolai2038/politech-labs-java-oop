@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Передвижение на самолёте
  */
-public class MovingByPlane implements IMovingStrategy {
+public class MovingStrategyFlying implements IMovingStrategy {
     @Override
     public void move(Point location) {
         location.setLocation(location.getX() + 1000, location.getY());

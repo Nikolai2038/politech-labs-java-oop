@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Hero king = new Hero("King", new MovingByWalk());
-        Hero villain = new Hero("Villain", new MovingByRun());
-        Hero hero = new Hero("Hero", new MovingNone());
+        Hero king = new Hero("King", new MovingStrategyWalking());
+        Hero villain = new Hero("Villain", new MovingStrategyRunning());
+        Hero hero = new Hero("Hero", new MovingStrategyNone());
 
         System.out.println("========================================");
         System.out.println("Start positions:");
@@ -25,8 +25,7 @@ public class Main {
         System.out.println("2 - walk");
         System.out.println("3 - run");
         System.out.println("4 - move by horse");
-        System.out.println("5 - move by car");
-        System.out.println("6 - move by plane");
+        System.out.println("5 - move by plane");
         System.out.println("========================================");
 
         Scanner scanner = new Scanner(System.in);
@@ -39,22 +38,19 @@ public class Main {
                 case "0":
                     break while_cycle;
                 case "1":
-                    hero.setMovingStrategy(new MovingNone());
+                    hero.setMovingStrategy(new MovingStrategyNone());
                     break;
                 case "2":
-                    hero.setMovingStrategy(new MovingByWalk());
+                    hero.setMovingStrategy(new MovingStrategyWalking());
                     break;
                 case "3":
-                    hero.setMovingStrategy(new MovingByRun());
+                    hero.setMovingStrategy(new MovingStrategyRunning());
                     break;
                 case "4":
-                    hero.setMovingStrategy(new MovingByHorse());
+                    hero.setMovingStrategy(new MovingStrategyOnHorse());
                     break;
                 case "5":
-                    hero.setMovingStrategy(new MovingByCar());
-                    break;
-                case "6":
-                    hero.setMovingStrategy(new MovingByPlane());
+                    hero.setMovingStrategy(new MovingStrategyFlying());
                     break;
                 default:
                     System.out.println("Unknown action: " + command + ". Try again.");
