@@ -1,5 +1,8 @@
 package lab_3;
 
+import lab_3.exceptions.FileReadException;
+import lab_3.exceptions.InvalidFileFormatException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,13 +14,13 @@ import java.util.Map;
 public class Dictionary {
     private final Map<String, String> dictionary = new HashMap<>();
 
-    public Dictionary(String resourcePath) {
+    public Dictionary(String resourcePath) throws InvalidFileFormatException, FileReadException {
         // Get the resource URL
         URL resource = getClass().getResource(resourcePath);
 
         // Check if resource exists
         if (resource == null) {
-            throw new RuntimeException("Dictionary file not found in resources: " + resourcePath);
+            throw new FileReadException("Dictionary file not found in resources: " + resourcePath);
         }
 
         // Try reading the resource file
@@ -27,13 +30,13 @@ public class Dictionary {
                 // Split line into two words
                 String[] parts = line.split("\\|");
                 if (parts.length != 2) {
-                    throw new RuntimeException("Invalid file format: " + line);
+                    throw new InvalidFileFormatException("Invalid file format: " + line);
                 }
                 // Add entry to the dictionary (and ignore case)
                 dictionary.put(parts[0].trim().toLowerCase(), parts[1].trim().toLowerCase());
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error reading resource file: " + e.getMessage());
+            throw new FileReadException("Error reading resource file: " + e.getMessage());
         }
     }
 
