@@ -11,9 +11,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+// Class to translate text with specified dictionary
 public class Dictionary {
+    // Dictionary itself, containing words/phrases to translations
     private final Map<String, String> dictionary = new HashMap<>();
 
+    // Create new Dictionary object by loading specified resource file
     public Dictionary(String resourcePath) throws InvalidFileFormatException, FileReadException {
         // Get the resource URL
         URL resource = getClass().getResource(resourcePath);
@@ -52,10 +55,14 @@ public class Dictionary {
 
             String bestMatch = findBestMatch(word);
             if (bestMatch != null) {
+                // If match found - add it to the result
                 result.append(dictionary.get(bestMatch));
             } else {
+                // If no match found - just add the word as it was
                 result.append(words[wordId]);
             }
+
+            // Add space between words
             if (wordId < words.length - 1) {
                 result.append(" ");
             }

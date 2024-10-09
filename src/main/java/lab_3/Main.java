@@ -3,15 +3,14 @@ package lab_3;
 import lab_3.exceptions.FileReadException;
 import lab_3.exceptions.InvalidFileFormatException;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     // Constant for the dictionary file name in resources
     private static final String DICTIONARY_FILE_PATH_IN_RESOURCES = "/dictionary.txt";
 
-    private final Map<String, String> dictionary = new HashMap<>();
-
     public static void main(String[] args) {
+        // Load dictionary
         Dictionary translator = null;
         try {
             translator = new Dictionary(DICTIONARY_FILE_PATH_IN_RESOURCES);
@@ -21,12 +20,14 @@ public class Main {
         }
         System.out.println("Dictionary successfully loaded!");
 
+        // Get input from user
         System.out.println("========================================");
         System.out.println("Enter text for translation:");
         System.out.println("========================================");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
+        // Translate and print it
         System.out.println("========================================");
         System.out.println("Translation:");
         System.out.println("========================================");
