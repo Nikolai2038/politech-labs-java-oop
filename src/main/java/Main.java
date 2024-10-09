@@ -26,6 +26,14 @@ public class Main {
         List<String> moreStrings = Arrays.asList("first", "second", "third");
         System.out.println("List: " + moreStrings);
         System.out.println("Last element: " + getLastElement(moreStrings));
+        System.out.println("----------------------------------------");
+        List<String> moreStringsEmpty = List.of();
+        System.out.println("List: " + moreStringsEmpty);
+        try {
+            System.out.println("Last element: " + getLastElement(moreStringsEmpty));
+        } catch (Exception e) {
+            System.out.println("Exception raised: " + e.getMessage());
+        }
 
         // Test sumOfEvenNumbers method
         System.out.println("========================================");
