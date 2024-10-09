@@ -2,11 +2,13 @@ package lab_2;
 
 public class MyClass {
     public int sum(int a, int b) {
+        System.out.println("Public Sum!");
         return a + b;
     }
 
-    @MyAnnotation(times_to_execute = 2)
+    @MyAnnotation(timesToExecute = 2)
     public double sqrt(double a) {
+        System.out.println("Public Sqrt!");
         return Math.sqrt(a);
     }
 
@@ -15,30 +17,34 @@ public class MyClass {
     }
 
     protected int sub(int a, int b) {
+        System.out.println("Protected Sub!");
         return a - b;
     }
 
-    @MyAnnotation(times_to_execute = 3)
+    @MyAnnotation(timesToExecute = 3)
     protected double div(double a, double b) {
+        System.out.println("Protected Div!");
         return a / b;
     }
 
-    @MyAnnotation(times_to_execute = 2)
+    @MyAnnotation(timesToExecute = 2)
     protected void superInfo() {
-        System.out.println("Hello, Super World!");
+        System.out.println("Protected Info!");
     }
 
-    @MyAnnotation(times_to_execute = 0)
+    @MyAnnotation(timesToExecute = 0)
     private int mul(int a, int b) {
+        System.out.println("Private Mul!");
         return a * b;
     }
 
-    @MyAnnotation(times_to_execute = 1)
+    @MyAnnotation(timesToExecute = 1)
     private double power(double a, double b) {
+        System.out.println("Private Power!");
         return Math.pow(a, b);
     }
 
     private void secretInfo() {
-        System.out.println("Hello, Secret World!");
+        System.out.println("Private Info!");
     }
 }

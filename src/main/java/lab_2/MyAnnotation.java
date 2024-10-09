@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface MyAnnotation {
-    int times_to_execute() default 0;
+    int timesToExecute() default 0;
 }
