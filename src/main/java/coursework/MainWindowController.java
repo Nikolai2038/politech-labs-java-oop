@@ -9,10 +9,10 @@ import java.io.PrintStream;
 import java.lang.reflect.Method;
 
 public class MainWindowController {
-
     // Text areas for displaying lab information and output
     @FXML
     private TextArea lab1Info, lab2Info, lab3Info, lab4Info;
+
     @FXML
     private TextArea lab1Output, lab2Output, lab3Output, lab4Output;
 
@@ -26,7 +26,6 @@ public class MainWindowController {
         lab4Info.setText(getLabInfo(lab_4.Main.class));
     }
 
-    // Methods to handle UI button clicks, which start each lab and display the output
     public void startLab1(ActionEvent actionEvent) {
         lab1Output.setText(runLab(lab_1.Main.class, new String[]{"1230"}));
     }
@@ -41,6 +40,22 @@ public class MainWindowController {
 
     public void startLab4(ActionEvent actionEvent) {
         lab4Output.setText(runLab(lab_4.Main.class, new String[]{}));
+    }
+
+    public void clearOutputForLab1(ActionEvent actionEvent) {
+        lab1Output.clear();
+    }
+
+    public void clearOutputForLab2(ActionEvent actionEvent) {
+        lab2Output.clear();
+    }
+
+    public void clearOutputForLab3(ActionEvent actionEvent) {
+        lab3Output.clear();
+    }
+
+    public void clearOutputForLab4(ActionEvent actionEvent) {
+        lab4Output.clear();
     }
 
     // This method retrieves and returns the "info" output of a lab using reflection
@@ -77,8 +92,10 @@ public class MainWindowController {
 
         // Redirect System.out to the new PrintStream (attached to outputStream)
         try (PrintStream ps = new PrintStream(outputStream)) {
-            System.setOut(ps); // Redirect the output to our stream
-            task.run();        // Run the task that generates output
+            // Redirect the output to our stream
+            System.setOut(ps);
+            // Run the task that generates output
+            task.run();
         } finally {
             // Restore the original System.out after the task completes
             System.setOut(originalOut);

@@ -16,6 +16,7 @@
             <Button onAction="#startLab1" text="Run program" maxWidth="Infinity"/>
             <Label text="Output:"/>
             <TextArea fx:id="lab1Output" editable="false" VBox.vgrow="ALWAYS"/>
+            <Button onAction="#clearOutputForLab1" text="Clear output" maxWidth="Infinity"/>
         </VBox>
     </Tab>
     <Tab text="Lab 2 - Annotations">
@@ -28,6 +29,7 @@
             <Button onAction="#startLab2" text="Run program" maxWidth="Infinity"/>
             <Label text="Output:"/>
             <TextArea fx:id="lab2Output" editable="false" VBox.vgrow="ALWAYS"/>
+            <Button onAction="#clearOutputForLab2" text="Clear output" maxWidth="Infinity"/>
         </VBox>
     </Tab>
     <Tab text="Lab 3 - Translator">
@@ -40,6 +42,7 @@
             <Button onAction="#startLab3" text="Run program" maxWidth="Infinity"/>
             <Label text="Output:"/>
             <TextArea fx:id="lab3Output" editable="false" VBox.vgrow="ALWAYS"/>
+            <Button onAction="#clearOutputForLab3" text="Clear output" maxWidth="Infinity"/>
         </VBox>
     </Tab>
     <Tab text="Lab 4 - Stream API">
@@ -52,6 +55,7 @@
             <Button onAction="#startLab4" text="Run program" maxWidth="Infinity"/>
             <Label text="Output:"/>
             <TextArea fx:id="lab4Output" editable="false" VBox.vgrow="ALWAYS"/>
+            <Button onAction="#clearOutputForLab4" text="Clear output" maxWidth="Infinity"/>
         </VBox>
     </Tab>
 </TabPane>
