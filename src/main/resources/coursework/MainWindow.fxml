@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<TabPane minWidth="800.0" minHeight="600.0" prefWidth="800.0" prefHeight="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<TabPane prefWidth="1000.0" prefHeight="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
          fx:controller="coursework.MainWindowController">
     <Tab text="Lab 1 - Game">
         <VBox spacing="12.0">

@@ -18,8 +18,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Устанавливаем размеры окна
-        stage.setWidth(300);
-        stage.setHeight(300);
+        stage.setWidth(1000);
+        stage.setHeight(800);
 
         // Устанавливаем сцену с FXML-разметкой
         URL url = new File("./src/main/resources/coursework/MainWindow.fxml").toURI().toURL();
