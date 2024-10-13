@@ -9,6 +9,14 @@ public class Main {
     // Constant for the dictionary file name in resources
     private static final String DICTIONARY_FILE_PATH_IN_RESOURCES = "/dictionary.txt";
 
+    public static void printInfo () {
+        System.out.println("========================================");
+        System.out.println("Info:");
+        System.out.println("========================================");
+        System.out.println("...");
+        System.out.println("========================================");
+    }
+
     public static void main(String[] args) {
         // Load dictionary
         Dictionary translator = null;

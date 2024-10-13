@@ -10,6 +10,18 @@ import java.lang.reflect.Method;
 
 public class MainWindowController {
     @FXML
+    private TextArea lab1Info;
+
+    @FXML
+    private TextArea lab2Info;
+
+    @FXML
+    private TextArea lab3Info;
+
+    @FXML
+    private TextArea lab4Info;
+
+    @FXML
     private TextArea lab1Output;
 
     @FXML
@@ -21,9 +33,13 @@ public class MainWindowController {
     @FXML
     private TextArea lab4Output;
 
-    // @FXML
-    // public void initialize() {
-    // }
+    @FXML
+    public void initialize() {
+        lab1Info.setText(this.printInfo(lab_1.Main.class));
+        lab2Info.setText(this.printInfo(lab_2.Main.class));
+        lab3Info.setText(this.printInfo(lab_3.Main.class));
+        lab4Info.setText(this.printInfo(lab_4.Main.class));
+    }
 
     public void startLab1(ActionEvent actionEvent) {
         // Call lab
@@ -57,6 +73,37 @@ public class MainWindowController {
         lab4Output.setText(output);
     }
 
+    private String printInfo(Class<?> labClass) {
+        // Save the original System.out for later
+        PrintStream originalOut = System.out;
+
+        // Create a ByteArrayOutputStream to capture the output
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(outputStream);
+
+        // Redirect System.out to the new PrintStream
+        System.setOut(ps);
+
+        try {
+            // Get the method of the provided class
+            Method mainMethod = labClass.getMethod("printInfo");
+
+            // Call the method
+            mainMethod.invoke(null);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Restore System.out to its original stream
+            System.setOut(originalOut);
+        }
+
+        // Restore System.out to its original stream
+        System.setOut(originalOut);
+
+        // Get the output as a string
+        return outputStream.toString();
+    }
+
     private String callLab(Class<?> labClass, String[] args) {
         // Save the original System.out for later
         PrintStream originalOut = System.out;
@@ -69,11 +116,11 @@ public class MainWindowController {
         System.setOut(ps);
 
         try {
-            // Get the 'main' method of the provided class (labClass)
+            // Get the method of the provided class
             Method mainMethod = labClass.getMethod("main", String[].class);
 
-            // Call the 'main' method with args
-            mainMethod.invoke(null, (Object) args);  // (Object) args is needed to avoid varargs warning
+            // Call the method
+            mainMethod.invoke(null, (Object) args);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {

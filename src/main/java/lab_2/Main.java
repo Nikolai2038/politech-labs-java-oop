@@ -5,6 +5,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public class Main {
+    public static void printInfo () {
+        System.out.println("========================================");
+        System.out.println("Info:");
+        System.out.println("========================================");
+        System.out.println("...");
+        System.out.println("========================================");
+    }
+
     public static void main(String[] args) {
         // Create object instance
         MyClass obj = new MyClass();

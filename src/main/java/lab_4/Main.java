@@ -4,6 +4,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static void printInfo () {
+        System.out.println("========================================");
+        System.out.println("Info:");
+        System.out.println("========================================");
+        System.out.println("...");
+        System.out.println("========================================");
+    }
+
     public static void main(String[] args) {
         // Test averageOfList method
         System.out.println("========================================");
