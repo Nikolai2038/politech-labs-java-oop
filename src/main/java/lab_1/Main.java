@@ -2,8 +2,6 @@ package lab_1;
 
 import lab_1.moving_strategies.*;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Hero king = new Hero("King", new MovingStrategyWalking());
@@ -28,28 +26,35 @@ public class Main {
         System.out.println("5 - move by plane");
         System.out.println("========================================");
 
-        Scanner scanner = new Scanner(System.in);
-        while_cycle:
-        while (true) {
+        if (args.length == 0) {
+            System.out.println("Please enter your actions as string as first argument to the program.");
+            System.exit(1);
+        }
+
+        String moves = args[0];
+
+        for_cycle:
+        for (int i = 0; i < moves.length(); i++) {
             System.out.print("Your turn. Choose action: ");
-            String command = scanner.nextLine();
+            char command = moves.charAt(i);
+            System.out.println(command);
 
             switch (command) {
-                case "0":
-                    break while_cycle;
-                case "1":
+                case '0':
+                    break for_cycle;
+                case '1':
                     hero.setMovingStrategy(new MovingStrategyNone());
                     break;
-                case "2":
+                case '2':
                     hero.setMovingStrategy(new MovingStrategyWalking());
                     break;
-                case "3":
+                case '3':
                     hero.setMovingStrategy(new MovingStrategyRunning());
                     break;
-                case "4":
+                case '4':
                     hero.setMovingStrategy(new MovingStrategyOnHorse());
                     break;
-                case "5":
+                case '5':
                     hero.setMovingStrategy(new MovingStrategyFlying());
                     break;
                 default:

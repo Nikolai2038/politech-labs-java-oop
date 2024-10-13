@@ -24,8 +24,14 @@ public class Main {
         System.out.println("========================================");
         System.out.println("Enter text for translation:");
         System.out.println("========================================");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+
+        if (args.length == 0) {
+            System.out.println("Please enter your text for translation as first argument to the program.");
+            System.exit(1);
+        }
+
+        String input = args[0];
+        System.out.println(input);
 
         // Translate and print it
         System.out.println("========================================");
