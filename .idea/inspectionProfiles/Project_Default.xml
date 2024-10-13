@@ -1,0 +1,12 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PhpCSFixerValidationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="PhpPropertyOnlyWrittenInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" editorAttributes="INFO_ATTRIBUTES" />
+    <inspection_tool class="UseControllerShortcuts" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="bashproGoogleFileNameStyle" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="bashproGoogleMainMissing" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="bashproGoogleShebang" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="bashproGoogleVariableNameStyle" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>
