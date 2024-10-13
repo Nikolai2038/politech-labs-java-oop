@@ -15,7 +15,6 @@ public class Main extends Application {
         launch(args);
     }
 
-    // Класс Stage зависит от платформы, на котором запускается приложение
     @Override
     public void start(Stage stage) throws IOException {
         // Устанавливаем размеры окна
@@ -23,13 +22,13 @@ public class Main extends Application {
         stage.setHeight(300);
 
         // Устанавливаем сцену с FXML-разметкой
-        URL url = new File("src/main/java/coursework/Scene.fxml").toURI().toURL();
+        URL url = new File("./src/main/resources/coursework/MainWindow.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
         stage.setScene(scene);
 
         // Устанавливаем название окна
-        stage.setTitle("FXML Example");
+        stage.setTitle("Coursework");
 
         // Показываем окно
         stage.show();

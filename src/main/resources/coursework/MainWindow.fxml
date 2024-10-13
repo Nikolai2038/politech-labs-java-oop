@@ -8,7 +8,7 @@
 
 <FlowPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="coursework.SceneController"
+          fx:controller="coursework.MainWindowController"
           prefHeight="400.0" prefWidth="600.0">
     <Label text="Some text" minWidth="70" fx:id="text"/>
     <Button text="Some button" onAction="#changeText"/>

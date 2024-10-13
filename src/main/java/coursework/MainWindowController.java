@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class SceneController {
+public class MainWindowController {
     @FXML
     private Label text;
 
