@@ -2,7 +2,9 @@ package coursework;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -11,10 +13,10 @@ import java.lang.reflect.Method;
 public class MainWindowController {
     // Text areas for displaying lab information and output
     @FXML
-    private TextArea lab1Info, lab2Info, lab3Info, lab4Info;
+    private TextArea lab1Info, lab2Info, lab3Info, lab4Info, lab1Output, lab2Output, lab3Output, lab4Output, lab3Input;
 
     @FXML
-    private TextArea lab1Output, lab2Output, lab3Output, lab4Output;
+    private TextField lab1Input;
 
     // This method is called when the UI initializes; it sets the information for each lab
     @FXML
@@ -27,7 +29,7 @@ public class MainWindowController {
     }
 
     public void startLab1(ActionEvent actionEvent) {
-        lab1Output.setText(runLab(lab_1.Main.class, new String[]{"1230"}));
+        lab1Output.setText(runLab(lab_1.Main.class, new String[]{lab1Input.getText()}));
     }
 
     public void startLab2(ActionEvent actionEvent) {
@@ -35,7 +37,7 @@ public class MainWindowController {
     }
 
     public void startLab3(ActionEvent actionEvent) {
-        lab3Output.setText(runLab(lab_3.Main.class, new String[]{"lalala dog dog dog look to the window, dog look forward \n"}));
+        lab3Output.setText(runLab(lab_3.Main.class, new String[]{lab3Input.getText()}));
     }
 
     public void startLab4(ActionEvent actionEvent) {
@@ -78,8 +80,7 @@ public class MainWindowController {
             // Invoke the method, passing null for static methods (since these labs have static main/printInfo)
             method.invoke(null, args);
         } catch (Exception e) {
-            // Wrap and rethrow any reflection-related exceptions as a RuntimeException
-            throw new RuntimeException(e);
+            showError(e.getMessage());
         }
     }
 
@@ -103,5 +104,16 @@ public class MainWindowController {
 
         // Return the captured output as a string
         return outputStream.toString();
+    }
+
+    private void showError(String errorMessage) {
+        // Create an error alert
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        // Remove the header text
+        alert.setHeaderText(null);
+        alert.setContentText(errorMessage);
+        // Display the alert and wait for user action
+        alert.showAndWait();
     }
 }

@@ -6,9 +6,6 @@ import lab_3.exceptions.InvalidFileFormatException;
 import java.util.Scanner;
 
 public class Main {
-    // Constant for the dictionary file name in resources
-    private static final String DICTIONARY_FILE_PATH_IN_RESOURCES = "/dictionary.txt";
-
     public static void printInfo () {
         System.out.println("========================================");
         System.out.println("Info:");
@@ -18,13 +15,25 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // Load dictionary
-        Dictionary translator = null;
-        try {
-            translator = new Dictionary(DICTIONARY_FILE_PATH_IN_RESOURCES);
-        } catch (InvalidFileFormatException | FileReadException e) {
-            System.err.println(e.getMessage());
+        if (args.length == 0) {
+            System.out.println("Please enter your text for translation as first argument to the program.");
             System.exit(1);
+        } else if (args.length == 1) {
+            System.out.println("Please specify dictionaries paths as arguments to the program after your text.");
+            System.exit(1);
+        }
+
+        Dictionary translator = new Dictionary();
+        for (int dictionary_id = 0; dictionary_id < args.length - 1; dictionary_id++) {
+            String dictionaryFilePath = args[dictionary_id];
+            // Load file
+            try {
+                translator.loadTranslationsFromFile(dictionaryFilePath);
+            } catch (InvalidFileFormatException | FileReadException e) {
+                System.err.println(e.getMessage());
+                System.exit(1);
+            }
+            System.out.println("File " + dictionaryFilePath + " successfully loaded!");
         }
         System.out.println("Dictionary successfully loaded!");
 
@@ -32,11 +41,6 @@ public class Main {
         System.out.println("========================================");
         System.out.println("Enter text for translation:");
         System.out.println("========================================");
-
-        if (args.length == 0) {
-            System.out.println("Please enter your text for translation as first argument to the program.");
-            System.exit(1);
-        }
 
         String input = args[0];
         System.out.println(input);
