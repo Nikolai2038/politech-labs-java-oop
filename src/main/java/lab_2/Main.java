@@ -3,6 +3,7 @@ package lab_2;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 
 public class Main {
     public static void printInfo () {
@@ -14,6 +15,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        if (Arrays.stream(args).toList().contains("--info")) {
+            printInfo();
+            System.exit(0);
+        }
+
         // Create object instance
         MyClass obj = new MyClass();
 

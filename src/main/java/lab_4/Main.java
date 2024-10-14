@@ -13,6 +13,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        if (Arrays.stream(args).toList().contains("--info")) {
+            printInfo();
+            System.exit(0);
+        }
+
         // Test averageOfList method
         System.out.println("========================================");
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);

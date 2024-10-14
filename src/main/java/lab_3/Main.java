@@ -3,6 +3,7 @@ package lab_3;
 import lab_3.exceptions.FileReadException;
 import lab_3.exceptions.InvalidFileFormatException;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        if (Arrays.stream(args).toList().contains("--info")) {
+            printInfo();
+            System.exit(0);
+        }
+
         if (args.length == 0) {
             System.out.println("Please enter your text for translation as first argument to the program.");
             System.exit(1);

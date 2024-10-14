@@ -2,6 +2,8 @@ package lab_1;
 
 import lab_1.moving_strategies.*;
 
+import java.util.Arrays;
+
 public class Main {
     private static final Hero king = new Hero("King", new MovingStrategyWalking());
     private static final Hero villain = new Hero("Villain", new MovingStrategyRunning());
@@ -28,10 +30,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        if (Arrays.stream(args).toList().contains("--info")) {
+            printInfo();
+            System.exit(0);
+        }
+
         if (args.length == 0) {
             System.out.println("Please enter your actions as string as first argument to the program.");
             System.exit(1);
         }
+
+        System.out.println("========================================");
 
         String moves = args[0];
 
@@ -60,8 +69,8 @@ public class Main {
                     hero.setMovingStrategy(new MovingStrategyFlying());
                     break;
                 default:
-                    System.out.println("Unknown action: " + command + ". Try again.");
-                    continue;
+                    System.out.println("Unknown action: " + command + ".");
+                    System.exit(1);
             }
 
             System.out.println("========================================");
