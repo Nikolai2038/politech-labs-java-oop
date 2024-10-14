@@ -40,9 +40,14 @@ public class Main {
             System.exit(1);
         }
 
-        System.out.println("========================================");
-
         String moves = args[0];
+
+        if (moves.isEmpty()) {
+            System.out.println("Please enter your actions as string as first argument to the program.");
+            System.exit(1);
+        }
+
+        System.out.println("========================================");
 
         for_cycle:
         for (int i = 0; i < moves.length(); i++) {

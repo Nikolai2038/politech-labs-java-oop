@@ -30,18 +30,17 @@ public class Main {
         }
 
         Dictionary translator = new Dictionary();
-        for (int dictionary_id = 0; dictionary_id < args.length - 1; dictionary_id++) {
+        for (int dictionary_id = 1; dictionary_id < args.length; dictionary_id++) {
             String dictionaryFilePath = args[dictionary_id];
             // Load file
             try {
                 translator.loadTranslationsFromFile(dictionaryFilePath);
             } catch (InvalidFileFormatException | FileReadException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
                 System.exit(1);
             }
-            System.out.println("File " + dictionaryFilePath + " successfully loaded!");
+            System.out.println("File " + dictionaryFilePath + " successfully loaded into dictionary!");
         }
-        System.out.println("Dictionary successfully loaded!");
 
         // Get input from user
         System.out.println("========================================");

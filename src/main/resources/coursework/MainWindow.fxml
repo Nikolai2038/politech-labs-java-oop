@@ -13,7 +13,7 @@
             <Label text="Info:" />
             <TextArea fx:id="lab1Info" editable="false" prefHeight="200.0" />
             <Label text="Input:" />
-            <TextField fx:id="lab1Input" VBox.vgrow="ALWAYS" />
+            <TextField fx:id="lab1Input" VBox.vgrow="ALWAYS" text="123" />
             <Button maxWidth="Infinity" onAction="#startLab1" text="Run program" />
             <Label text="Output:" />
             <TextArea fx:id="lab1Output" editable="false" VBox.vgrow="ALWAYS" />
@@ -40,7 +40,7 @@
             </padding>
             <HBox spacing="12.0">
                 <VBox spacing="12.0">
-                    <Label text="Dictionaries list to use:" />
+                    <Label text="Paths to dictionaries to use:" />
                     <TextArea fx:id="lab3DictionariesList" prefHeight="200.0" text="./src/main/resources/lab_3/dictionary_1.txt&#10;./src/main/resources/lab_3/dictionary_2.txt" />
                 </VBox>
                 <VBox spacing="12.0">
@@ -49,7 +49,7 @@
                 </VBox>
             </HBox>
             <Label text="Input:" />
-            <TextArea fx:id="lab3Input" prefHeight="200.0" />
+            <TextArea fx:id="lab3Input" prefHeight="200.0" text="dog look to the window, cat look forward" />
             <Button maxWidth="Infinity" onAction="#startLab3" text="Run program" />
             <Label text="Output:" />
             <TextArea fx:id="lab3Output" editable="false" VBox.vgrow="ALWAYS" />

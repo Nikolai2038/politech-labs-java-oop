@@ -7,12 +7,13 @@ import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class MainWindowController {
     @FXML
-    private TextArea lab1Info, lab2Info, lab3Info, lab4Info, lab1Output, lab2Output, lab3Output, lab4Output, lab3Input;
+    private TextArea lab1Info, lab2Info, lab3Info, lab4Info, lab1Output, lab2Output, lab3Output, lab4Output, lab3Input, lab3DictionariesList;
     @FXML
     private TextField lab1Input;
 
@@ -34,7 +35,13 @@ public class MainWindowController {
     }
 
     public void startLab3() {
-        runLab("lab_3.Main", new String[]{lab3Input.getText()}, lab3Output);
+        ArrayList<String> options = new ArrayList<>();
+        options.add(lab3Input.getText());
+
+        // Split text into list and ignore empty lines too
+        options.addAll(Arrays.stream(lab3DictionariesList.getText().split("\n")).filter(s -> !s.trim().isEmpty()).toList());
+
+        runLab("lab_3.Main", options.toArray(new String[0]), lab3Output);
     }
 
     public void startLab4() {
@@ -83,10 +90,10 @@ public class MainWindowController {
 
         BufferedReader outReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader errReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-        String outLine;
-        String errLine;
 
         try {
+            String outLine;
+            String errLine;
             do {
                 // Capture the process's standard output
                 outLine = outReader.readLine();
