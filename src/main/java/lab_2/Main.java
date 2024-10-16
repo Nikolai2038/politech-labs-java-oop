@@ -10,7 +10,8 @@ public class Main {
         System.out.println("========================================");
         System.out.println("Info:");
         System.out.println("========================================");
-        System.out.println("...");
+        System.out.println("This program will call methods from \"MyClass\", which has \"MyAnnotation\".");
+        System.out.println("Number of execution times specified as annotation param.");
         System.out.println("========================================");
     }
 

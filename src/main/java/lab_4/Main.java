@@ -8,7 +8,8 @@ public class Main {
         System.out.println("========================================");
         System.out.println("Info:");
         System.out.println("========================================");
-        System.out.println("...");
+        System.out.println("This program uses Stream API to get info from lists.");
+        System.out.println("Separate list elements with comma.");
         System.out.println("========================================");
     }
 
@@ -18,51 +19,66 @@ public class Main {
             System.exit(0);
         }
 
+        if (args.length < 6) {
+            System.out.println("You must specify all the arrays");
+            System.exit(1);
+        }
+
+
         // Test averageOfList method
         System.out.println("========================================");
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> numbers;
+        try {
+            numbers = Arrays.stream(args[0].split("\\s*,\\s*")).map(Integer::parseInt).toList();
+        } catch (NumberFormatException e) {
+            System.out.println("Failed to convert string \"" + args[0] + "\" to list of integers!");
+            System.exit(1);
+            return;
+        }
         System.out.println("List: " + numbers);
         System.out.println("Average of list: " + averageOfList(numbers).orElse(0.0));
 
         // Test transformStrings method
         System.out.println("========================================");
-        List<String> strings = Arrays.asList("apple", "banana", "cherry");
+        List<String> strings = Arrays.stream(args[1].split("\\s*,\\s*")).toList();
         System.out.println("List: " + strings);
         System.out.println("Transformed strings: " + transformStrings(strings));
 
         // Test uniqueSquares method
         System.out.println("========================================");
-        List<Integer> duplicateNumbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+        List<Integer> duplicateNumbers;
+        try {
+            duplicateNumbers = Arrays.stream(args[2].split("\\s*,\\s*")).map(Integer::parseInt).toList();
+        } catch (NumberFormatException e) {
+            System.out.println("Failed to convert string \"" + args[2] + "\" to list of integers!");
+            System.exit(1);
+            return;
+        }
         System.out.println("List: " + duplicateNumbers);
         System.out.println("Unique squares: " + uniqueSquares(duplicateNumbers));
 
         // Test getLastElement method
         System.out.println("========================================");
-        List<String> moreStrings = Arrays.asList("first", "second", "third");
+        List<String> moreStrings = Arrays.stream(args[3].split("\\s*,\\s*")).toList();
         System.out.println("List: " + moreStrings);
         System.out.println("Last element: " + getLastElement(moreStrings));
-        System.out.println("----------------------------------------");
-        List<String> moreStringsEmpty = List.of();
-        System.out.println("List: " + moreStringsEmpty);
-        try {
-            System.out.println("Last element: " + getLastElement(moreStringsEmpty));
-        } catch (Exception e) {
-            System.out.println("Exception raised: " + e.getMessage());
-        }
 
         // Test sumOfEvenNumbers method
         System.out.println("========================================");
-        int[] numArray = {1, 2, 3, 4, 5, 6};
+        int[] numArray;
+        try {
+            numArray = Arrays.stream(args[4].split("\\s*,\\s*")).mapToInt(Integer::parseInt).toArray();
+        } catch (NumberFormatException e) {
+            System.out.println("Failed to convert string \"" + args[4] + "\" to array of integers!");
+            System.exit(1);
+            return;
+        }
         System.out.println("List: " + Arrays.toString(numArray));
         System.out.println("Sum of even numbers: " + sumOfEvenNumbers(numArray));
-        System.out.println("----------------------------------------");
-        int[] numArrayWithoutEven = {1, 3, 5, 7, 9, 11};
-        System.out.println("List: " + Arrays.toString(numArrayWithoutEven));
-        System.out.println("Sum of even numbers: " + sumOfEvenNumbers(numArrayWithoutEven));
 
         // Test convertToMap method
         System.out.println("========================================");
-        List<String> stringList = Arrays.asList("apple", "banana", "cherry");
+        List<String> stringList = Arrays.stream(args[5].split("\\s*,\\s*")).toList();
         System.out.println("List: " + stringList);
         System.out.println("Converted map: " + convertToMap(stringList));
 

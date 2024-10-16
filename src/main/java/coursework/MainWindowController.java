@@ -15,7 +15,7 @@ public class MainWindowController {
     @FXML
     private TextArea lab1Info, lab2Info, lab3Info, lab4Info, lab1Output, lab2Output, lab3Output, lab4Output, lab3Input, lab3DictionariesList;
     @FXML
-    private TextField lab1Input;
+    private TextField lab1Input, lab4InputAverageOfList, lab4InputTransformedStrings, lab4InputUniqueSquares, lab4InputLastElement, lab4InputSumOfEvenNumbers, lab4InputConvertedMap;
 
     @FXML
     public void initialize() {
@@ -45,7 +45,15 @@ public class MainWindowController {
     }
 
     public void startLab4() {
-        runLab("lab_4.Main", new String[]{}, lab4Output);
+        runLab("lab_4.Main", new String[]{
+                // We pass all values as string and then will convert them to arrays inside lab 4
+                lab4InputAverageOfList.getText(),
+                lab4InputTransformedStrings.getText(),
+                lab4InputUniqueSquares.getText(),
+                lab4InputLastElement.getText(),
+                lab4InputSumOfEvenNumbers.getText(),
+                lab4InputConvertedMap.getText(),
+        }, lab4Output);
     }
 
     public void clearOutputForLab1() {
@@ -104,7 +112,7 @@ public class MainWindowController {
                 // Capture any errors from the process's standard error
                 errLine = errReader.readLine();
                 if (errLine != null) {
-                    outputTextBuilder.append(outLine).append("\n");
+                    outputTextBuilder.append(errLine).append("\n");
                 }
             } while (outLine != null || errLine != null);
         } catch (IOException e) {

@@ -11,7 +11,8 @@ public class Main {
         System.out.println("========================================");
         System.out.println("Info:");
         System.out.println("========================================");
-        System.out.println("...");
+        System.out.println("Input paths to dictionary files on each line.");
+        System.out.println("Then, input text you want to translate.");
         System.out.println("========================================");
     }
 
