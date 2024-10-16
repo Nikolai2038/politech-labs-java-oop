@@ -1,0 +1,3 @@
+cat | кошка
+window | окно
+to the window | к окну

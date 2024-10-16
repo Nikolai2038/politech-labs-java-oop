@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane prefHeight="800.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursework.MainWindowController">
+    <Tab text="Lab 1 - Game">
+        <VBox spacing="12.0">
+            <padding>
+                <Insets bottom="12" left="12" right="12" top="12" />
+            </padding>
+            <Label text="Info:" />
+            <TextArea fx:id="lab1Info" editable="false" prefHeight="200.0" />
+            <Label text="Input:" />
+            <TextField fx:id="lab1Input" text="123" />
+            <Button maxWidth="Infinity" onAction="#startLab1" text="Run program" />
+            <Label text="Output:" />
+            <TextArea fx:id="lab1Output" editable="false" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="Infinity" onAction="#clearOutputForLab1" text="Clear output" />
+        </VBox>
+    </Tab>
+    <Tab text="Lab 2 - Annotations">
+        <VBox spacing="12.0">
+            <padding>
+                <Insets bottom="12" left="12" right="12" top="12" />
+            </padding>
+            <Label text="Info:" />
+            <TextArea fx:id="lab2Info" editable="false" prefHeight="200.0" />
+            <Button maxWidth="Infinity" onAction="#startLab2" text="Run program" />
+            <Label text="Output:" />
+            <TextArea fx:id="lab2Output" editable="false" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="Infinity" onAction="#clearOutputForLab2" text="Clear output" />
+        </VBox>
+    </Tab>
+    <Tab text="Lab 3 - Translator">
+        <VBox spacing="12.0">
+            <padding>
+                <Insets bottom="12" left="12" right="12" top="12" />
+            </padding>
+            <HBox spacing="12.0">
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <Label text="Paths to dictionaries to use:" />
+                    <TextArea fx:id="lab3DictionariesList" text="./src/main/resources/lab_3/dictionary_1.txt&#10;./src/main/resources/lab_3/dictionary_2.txt" />
+                </VBox>
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <Label text="Info:" />
+                    <TextArea fx:id="lab3Info" editable="false" />
+                </VBox>
+            </HBox>
+            <Label text="Input:" />
+            <TextArea fx:id="lab3Input" prefHeight="200.0" text="dog look to the window, cat look forward" />
+            <Button maxWidth="Infinity" onAction="#startLab3" text="Run program" />
+            <Label text="Output:" />
+            <TextArea fx:id="lab3Output" editable="false" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="Infinity" onAction="#clearOutputForLab3" text="Clear output" />
+        </VBox>
+    </Tab>
+    <Tab text="Lab 4 - Stream API">
+        <VBox spacing="12.0">
+            <padding>
+                <Insets bottom="12" left="12" right="12" top="12" />
+            </padding>
+            <Label text="Info:" />
+            <TextArea fx:id="lab4Info" editable="false" prefHeight="200.0" />
+            <HBox spacing="12.0">
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <Label text="Average of list of integer numbers:" />
+                    <TextField fx:id="lab4InputAverageOfList" text="1, 2, 3, 4, 5" />
+                    <Label text="Transformed strings to upper case and add prefix:" />
+                    <TextField fx:id="lab4InputTransformedStrings" text="apple, banana, cherry" />
+                    <Label text="Unique values squares:" />
+                    <TextField fx:id="lab4InputUniqueSquares" text="6, 7, 7, 8, 9, 9, 9" />
+                </VBox>
+                <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                    <Label text="Last element or exception if empty:" />
+                    <TextField fx:id="lab4InputLastElement" text="first, second, third" />
+                    <Label text="Sum of even numbers:" />
+                    <TextField fx:id="lab4InputSumOfEvenNumbers" text="10, 11, 12, 13, 14" />
+                    <Label text="Strings to convert to the map (first symbol - key, the rest - value):" />
+                    <TextField fx:id="lab4InputConvertedMap" text="car, truck, plane" />
+                </VBox>
+            </HBox>
+            <Button maxWidth="Infinity" onAction="#startLab4" text="Run program" />
+            <Label text="Output:" />
+            <TextArea fx:id="lab4Output" editable="false" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="Infinity" onAction="#clearOutputForLab4" text="Clear output" />
+        </VBox>
+    </Tab>
+</TabPane>

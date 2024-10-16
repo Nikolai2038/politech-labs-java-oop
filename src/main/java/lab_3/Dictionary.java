@@ -4,9 +4,9 @@ import lab_3.exceptions.FileReadException;
 import lab_3.exceptions.InvalidFileFormatException;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,18 +16,9 @@ public class Dictionary {
     // Dictionary itself, containing words/phrases to translations
     private final Map<String, String> dictionary = new HashMap<>();
 
-    // Create new Dictionary object by loading specified resource file
-    public Dictionary(String resourcePath) throws InvalidFileFormatException, FileReadException {
-        // Get the resource URL
-        URL resource = getClass().getResource(resourcePath);
-
-        // Check if resource exists
-        if (resource == null) {
-            throw new FileReadException("Dictionary file not found in resources: " + resourcePath);
-        }
-
-        // Try reading the resource file
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()))) {
+    public void loadTranslationsFromFile(String filePath) throws InvalidFileFormatException, FileReadException {
+        // Try reading the file from the provided file path
+        try (BufferedReader reader = new BufferedReader(new FileReader(Paths.get(filePath).toFile()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Split line into two words
@@ -39,7 +30,7 @@ public class Dictionary {
                 dictionary.put(parts[0].trim().toLowerCase(), parts[1].trim().toLowerCase());
             }
         } catch (IOException e) {
-            throw new FileReadException("Error reading resource file: " + e.getMessage());
+            throw new FileReadException("Error reading file: " + e.getMessage());
         }
     }
 

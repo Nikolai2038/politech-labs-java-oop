@@ -3,9 +3,24 @@ package lab_2;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 
 public class Main {
+    public static void printInfo () {
+        System.out.println("========================================");
+        System.out.println("Info:");
+        System.out.println("========================================");
+        System.out.println("This program will call methods from \"MyClass\", which has \"MyAnnotation\".");
+        System.out.println("Number of execution times specified as annotation param.");
+        System.out.println("========================================");
+    }
+
     public static void main(String[] args) {
+        if (Arrays.stream(args).toList().contains("--info")) {
+            printInfo();
+            System.exit(0);
+        }
+
         // Create object instance
         MyClass obj = new MyClass();
 
